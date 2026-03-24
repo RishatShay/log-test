@@ -1,0 +1,24 @@
+# DO NOT USE this configuration in production environments.
+# This configuration ONLY for demonstration purposes.
+
+# cluster configuration (proxy + store)
+
+address:
+  http: :9002
+  grpc: :9004
+  debug: :9200
+
+storage:
+  data_dir: ./data
+  frac_size: 16MiB
+  total_size: 1GiB
+
+cluster:
+  hot_stores:
+    - seq-db-store:9004
+
+slow_logs:
+  bulk_threshold: 1s
+
+mapping:
+  path: /seq-db/mappings.yaml
